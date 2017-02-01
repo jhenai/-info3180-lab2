@@ -7,6 +7,7 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for
+import time
 
 
 ###
@@ -17,6 +18,12 @@ from flask import render_template, request, redirect, url_for
 def home():
     """Render website's home page."""
     return render_template('home.html')
+
+@app.route('/profile')
+def profile():
+    """Render website's home page."""
+  
+    return render_template('profile.html', date= timeinfo())
 
 
 @app.route('/about/')
@@ -34,6 +41,12 @@ def send_text_file(file_name):
     """Send your static text file."""
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
+    
+
+@app.route('/profile')
+def timeinfo():
+    now = time.strftime("%a, %d %B %Y")
+    return("Today's date is %s" % now) 
 
 
 @app.after_request
@@ -51,6 +64,8 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+    
+
 
 
 if __name__ == '__main__':

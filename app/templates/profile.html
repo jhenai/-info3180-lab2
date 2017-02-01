@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Profile</h2>
+<hr>
+<img src="{{ url_for('static', filename='Yoda.png') }}" alt="Umm. yoda (duh)" style= "float:left; height:300px; width:300px" class="img-thumbnail">
+
+<div style="float:left; width:40%" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Yoda</h3>
+  </div>
+  <div class="panel-body">
+   
+       {{date}}
+   <hr>
+       <ul class="list-unstyled" style="line-height:200%; text-align:left">
+              <li><b>Username:</b> Yoda </li>
+              <li><b>ID Number:</b> 894894802</li>
+              <li><b>Age:</b> 193</li>
+              <li><b>Gender:</b> Undefined</dd>
+              <hr>
+              "Feel the force!”
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
